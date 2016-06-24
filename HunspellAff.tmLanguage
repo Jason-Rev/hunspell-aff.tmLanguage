@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>fileTypes</key>
+	<array>
+		<string>aff</string>
+	</array>
+	<key>name</key>
+	<string>Hunspell Aff</string>
+	<key>patterns</key>
+	<array>
+		<dict>
+			<key>include</key>
+			<string>#value</string>
+		</dict>
+	</array>
+	<key>repository</key>
+	<dict>
+		<key>comments</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.comment.json</string>
+						</dict>
+					</dict>
+					<key>match</key>
+					<string>(#).*$\n?</string>
+					<key>name</key>
+					<string>comment.line.hash</string>
+				</dict>
+			</array>
+		</dict>
+		<key>keyword</key>
+		<dict>
+			<key>match</key>
+			<string>^\s*(SET|TRY|KEY|WORDCHARS|KEEPCASE|NOSPLITSUGS|MAXCPDSUGS|ONLYMAXDIFF|MAXDIFF|WARN|FORCEUCASE|BREAK|FLAG|FORBIDDENWORD|NOSUGGEST|MAP|ICONV|OCONV|REP|COMPOUNDMIN|COMPOUNDRULE|COMPOUNDBEGIN|COMPOUNDMIDDLE|COMPOUNDEND|COMPOUNDPERMITFLAG|ONLYINCOMPOUND|CHECKCOMPOUNDDUP|CHECKCOMPOUNDPATTERN|SFX|PFX)</string>
+			<key>name</key>
+			<string>keyword.control.aff</string>
+		</dict>
+		<key>number</key>
+		<dict>
+			<key>match</key>
+			<string>(?x)        # turn on extended mode
+  -?        # an optional minus
+  (?:
+    0       # a zero
+    |       # ...or...
+    [1-9]   # a 1-9 character
+    \d*     # followed by zero or more digits
+  )
+  (?:
+    (?:
+      \.    # a period
+      \d+   # followed by one or more digits
+    )?
+    (?:
+      [eE]  # an e character
+      [+-]? # followed by an option +/-
+      \d+   # followed by one or more digits
+    )?      # make exponent optional
+  )?        # make decimal portion optional</string>
+			<key>name</key>
+			<string>constant.numeric.json</string>
+		</dict>
+		<key>value</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#comments</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#keyword</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#number</string>
+				</dict>
+			</array>
+		</dict>
+	</dict>
+	<key>scopeName</key>
+	<string>source.hunspell_aff</string>
+	<key>uuid</key>
+	<string>a95826fa-90e0-4095-a92d-5abf62d78f4a</string>
+</dict>
+</plist>

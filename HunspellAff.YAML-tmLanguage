@@ -1,0 +1,52 @@
+# [PackageDev] target_format: plist, ext: tmLanguage
+---
+name: Hunspell Aff
+scopeName: source.hunspell_aff
+fileTypes: [aff]
+uuid: a95826fa-90e0-4095-a92d-5abf62d78f4a
+
+patterns:
+- include: '#value'
+
+repository:
+  comments:
+    patterns:
+    - name: comment.line.hash
+      match: (#).*$\n?
+      captures:
+        '1': {name: punctuation.definition.comment.json}
+
+  keyword:
+    name: keyword.control.aff
+    match: ^\s*(SET|TRY|KEY|WORDCHARS|KEEPCASE|NOSPLITSUGS|MAXCPDSUGS|ONLYMAXDIFF|MAXDIFF|WARN|FORCEUCASE|BREAK|FLAG|FORBIDDENWORD|NOSUGGEST|MAP|ICONV|OCONV|REP|COMPOUNDMIN|COMPOUNDRULE|COMPOUNDBEGIN|COMPOUNDMIDDLE|COMPOUNDEND|COMPOUNDPERMITFLAG|ONLYINCOMPOUND|CHECKCOMPOUNDDUP|CHECKCOMPOUNDPATTERN|SFX|PFX)
+
+  # handles integer and decimal numbers
+  number:
+    name: constant.numeric.json
+    match: >-
+      (?x)        # turn on extended mode
+        -?        # an optional minus
+        (?:
+          0       # a zero
+          |       # ...or...
+          [1-9]   # a 1-9 character
+          \d*     # followed by zero or more digits
+        )
+        (?:
+          (?:
+            \.    # a period
+            \d+   # followed by one or more digits
+          )?
+          (?:
+            [eE]  # an e character
+            [+-]? # followed by an option +/-
+            \d+   # followed by one or more digits
+          )?      # make exponent optional
+        )?        # make decimal portion optional
+
+
+  value:
+    patterns:
+    - include: '#comments'
+    - include: '#keyword'
+    - include: '#number'
