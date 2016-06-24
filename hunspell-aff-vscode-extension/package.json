@@ -1,0 +1,30 @@
+{
+    "name": "hunspell-aff",
+    "displayName": "HunspellAff",
+    "description": "Colorizes Hunspell .aff files.",
+    "version": "0.0.1",
+    "publisher": "streetsidesoftware",
+    "engines": {
+        "vscode": "^1.0.0"
+    },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jason-Rev/hunspell-aff.tmLanguage.git"
+  },
+    "categories": [
+        "Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "hunspell_aff",
+            "aliases": ["Hunspell Aff", "hunspell_aff"],
+            "extensions": [".aff"],
+            "configuration": "./hunspell_aff.configuration.json"
+        }],
+        "grammars": [{
+            "language": "hunspell_aff",
+            "scopeName": "source.hunspell_aff",
+            "path": "./syntaxes/hunspell_aff.tmLanguage"
+        }]
+    }
+}
